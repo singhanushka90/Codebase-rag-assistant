@@ -20,7 +20,7 @@ This project solves that problem by combining semantic retrieval, keyword search
 
 ---
 
-## Key Capability
+## Key Capabilities 
 
 ### Code Understanding
 
