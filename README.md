@@ -114,14 +114,6 @@ codebase-intelligence/
 ├── codebase.py
 ├── requirements.txt
 ├── README.md
-├── .gitignore
-│
-├── codebase/
-│   ├── module1.py
-│   ├── module2.py
-│   └── ...
-│
-└── screenshots/
 ```
 
 ---
