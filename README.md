@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=220&section=header&text=CodeBase%20Intelligence&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=AI-Powered%20Codebase%20Understanding%20%26%20Chat%20System&descAlignY=58&descSize=16&animation=fadeIn" />
-</p>
+<h1 align="center">🧠 CodeBase Intelligence</h1>
+<p align="center">AI-Powered Codebase Understanding & Chat System</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
