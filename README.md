@@ -85,11 +85,10 @@ Chat Response + Memory
 ## 📁 Project Structure
 
 ```
-codebase-intelligence/
+CodeBase AI
 │
 ├── 🐍 codebase.py          ← Main Streamlit app
 ├── 📋 requirements.txt     ← Dependencies
-├── 🔒 .gitignore
 ├── 📖 README.md
 │
 └── 📂 codebase/            ← Your Python files
