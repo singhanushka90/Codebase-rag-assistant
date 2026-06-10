@@ -1,269 +1,203 @@
-# CodeBase Intelligence
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=220&section=header&text=CodeBase%20Intelligence&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=AI-Powered%20Codebase%20Understanding%20%26%20Chat%20System&descAlignY=58&descSize=16&animation=fadeIn" />
+</p>
 
-AI-powered codebase understanding system built using Hybrid Retrieval-Augmented Generation (RAG).
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/LangChain-RAG%20Pipeline-121212?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Groq-LLM%20Powered-F55036?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ChromaDB-Vector%20Store-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Streamlit-Deployable-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Active-22c55e?style=for-the-badge" />
+</p>
 
-CodeBase Intelligence enables developers to interact with an entire Python codebase using natural language. Instead of manually navigating files, searching functions, or reading thousands of lines of code, developers can ask questions and receive context-aware answers generated from the actual source code.
-
----
-
-## Overview
-
-Large codebases are difficult to understand, especially during:
-
-* New developer onboarding
-* Legacy system maintenance
-* Team handovers
-* Feature exploration
-* Code reviews
-
-This project solves that problem by combining semantic retrieval, keyword search, conversational memory, and LLM reasoning into a single developer assistant.
+<br/>
 
 ---
 
-## Key Capabilities 
+## 🧠 What Is This?
 
-### Code Understanding
+**CodeBase Intelligence** is an AI-powered developer tool that allows you to **chat with your entire Python codebase** using natural language. Built on a production-grade **Hybrid RAG pipeline** combining Dense Vector Search and BM25 Sparse Retrieval, it enables developers to instantly understand, navigate, and query large codebases without manually reading every file.
 
-* Analyze complete Python codebases
-* Explain functions, classes, and modules
-* Trace implementation logic
-
-### Hybrid Retrieval
-
-* Dense semantic search using embeddings
-* Sparse keyword search using BM25
-* Ensemble retrieval for improved accuracy
-
-### Conversational AI
-
-* Multi-turn conversations
-* Session-based memory
-* Context-aware responses
-
-### Developer Productivity
-
-* Faster onboarding
-* Reduced documentation dependency
-* Instant code exploration
+> 💡 **Real-World Use Cases:**
+> Code Onboarding • Legacy Code Understanding • Team Knowledge Sharing • Automated Code Documentation • AI-Powered Code Review
 
 ---
 
-## Architecture
+## ⚙️ System Architecture
 
-```text
-Python Files (.py)
-        │
-        ▼
-DirectoryLoader
-        │
-        ▼
-RecursiveCharacterTextSplitter
-        │
-        ▼
-HuggingFace Embeddings
-(all-MiniLM-L6-v2)
-        │
-        ▼
-Chroma Vector Database
-        │
-        ▼
+```
+Python Codebase (.py files)
+        ↓
+DirectoryLoader + TextLoader
+        ↓
+RecursiveCharacterTextSplitter (Python-aware)
+        ↓
+HuggingFace Embeddings (all-MiniLM-L6-v2)
+        ↓
 ┌─────────────────────────────┐
 │      Hybrid Retrieval       │
-│                             │
-│ Dense Retrieval (Chroma)    │
-│           +                 │
-│ Sparse Retrieval (BM25)     │
+│  Dense (Chroma) + BM25      │
+│  EnsembleRetriever [0.5,0.5]│
 └─────────────────────────────┘
-        │
-        ▼
-EnsembleRetriever
-        │
-        ▼
-Groq LLM
-(llama3-70b-8192)
-        │
-        ▼
-Conversational Memory
-        │
-        ▼
-Developer Response
+        ↓
+Groq LLM (llama3-70b-8192)
+        ↓
+RunnableWithMessageHistory
+        ↓
+Chat Response + Memory
 ```
 
 ---
 
-## Technology Stack
+## ✨ Key Features
 
-| Component    | Technology                 |
-| ------------ | -------------------------- |
-| Language     | Python                     |
-| Frontend     | Streamlit                  |
-| Framework    | LangChain                  |
-| LLM          | Groq                       |
-| Embeddings   | HuggingFace                |
-| Vector Store | ChromaDB                   |
-| Retrieval    | BM25 + Dense Retrieval     |
-| Memory       | RunnableWithMessageHistory |
+| Feature | Description |
+|---------|-------------|
+| 📂 **Full Codebase Loading** | Recursively loads all `.py` files |
+| 🔍 **Hybrid Search** | Dense + BM25 for maximum retrieval accuracy |
+| 🧠 **AI Understanding** | Senior Engineer persona for accurate answers |
+| 💬 **Conversational Memory** | Session-based chat history |
+| ⚡ **Groq LLM** | Ultra-fast inference |
+| 🗃️ **ChromaDB** | Persistent vector storage |
+| 🌐 **Streamlit UI** | Clean, developer-friendly interface |
 
 ---
 
-## Project Structure
+## 🛠️ Tech Stack
 
-```text
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,streamlit" />
+</p>
+
+| Library | Purpose |
+|---------|---------|
+| **LangChain** | RAG pipeline orchestration |
+| **Groq** | Ultra-fast LLM inference |
+| **ChromaDB** | Vector database (persistent) |
+| **HuggingFace** | `all-MiniLM-L6-v2` embeddings |
+| **BM25Retriever** | Sparse keyword retrieval |
+| **EnsembleRetriever** | Hybrid search fusion |
+| **Streamlit** | Web UI |
+
+---
+
+## 📁 Project Structure
+
+```
 codebase-intelligence/
 │
-├── codebase.py
-├── requirements.txt
-├── README.md
+├── 🐍 codebase.py          ← Main Streamlit app
+├── 📋 requirements.txt     ← Dependencies
+├── 🔒 .gitignore
+├── 📖 README.md
+│
+└── 📂 codebase/            ← Your Python files
+    ├── module1.py
+    ├── module2.py
+    └── ...
 ```
 
 ---
 
-## Installation
-
-### Clone Repository
+## 🚀 Setup & Installation
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/singhanushka90/codebase-intelligence.git
 cd codebase-intelligence
-```
 
-### Create Virtual Environment
-
-```bash
+# 2. Create virtual environment
 python -m venv venv
-```
+venv\Scripts\activate  # Windows
 
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / Mac:
-
-```bash
-source venv/bin/activate
-```
-
-### Install Dependencies
-
-```bash
+# 3. Install dependencies
 pip install -r requirements.txt
-```
 
-### Launch Application
+# 4. Add your Python files
+# Place your .py files inside the /codebase folder
 
-```bash
+# 5. Run the app
 streamlit run codebase.py
 ```
 
 ---
 
-## Example Queries
+## 💻 How To Use
 
-```text
-What does load_policy() do?
+```
+1. Enter your Groq API Key in sidebar
+2. Click "Load Codebase" button
+3. Wait for indexing to complete
+4. Ask questions about your code!
+```
 
-Explain the authentication workflow.
-
-Which files are responsible for retrieval?
-
-Show all database-related functions.
-
-How does the RAG pipeline work?
-
-Find classes related to user management.
+**Example Questions:**
+```
+→ "What does the load_policy function do?"
+→ "Which files handle authentication?"
+→ "Explain the RAG pipeline in app.py"
+→ "What libraries are being used?"
+→ "Find all functions related to database"
 ```
 
 ---
 
-## Retrieval Strategy
+## 🔍 How Hybrid Search Works
 
-This project uses a Hybrid Retrieval architecture.
-
-### Dense Retrieval
-
-Captures semantic meaning using vector embeddings.
-
-Example:
-
-Query:
-"How is user login implemented?"
-
-Can retrieve:
-
-"authenticate_user()"
-
-even when exact words differ.
-
-### Sparse Retrieval (BM25)
-
-Captures exact keyword matches.
-
-Example:
-
-Query:
-"load_policy"
-
-Returns chunks containing that exact function.
-
-### Ensemble Retrieval
-
-Combines both approaches:
-
-```python
-EnsembleRetriever(
-    retrievers=[dense, sparse],
-    weights=[0.5, 0.5]
-)
 ```
-
-Result:
-Higher retrieval precision and better answer quality.
-
----
-
-## Future Roadmap
-
-* JavaScript support
-* TypeScript support
-* Java support
-* GitHub repository ingestion
-* Repository-level summarization
-* Dependency graph visualization
-* Local LLM support via Ollama
-* Docker deployment
-* Source citation support
-
----
-
-## Screenshots
-
-Add screenshots here:
-
-```text
-screenshots/home.png
-screenshots/chat.png
-screenshots/retrieval.png
+Your Question
+      ↓
+┌─────────────┬──────────────┐
+│Dense Search │ BM25 Search  │
+│(Semantic)   │ (Keyword)    │
+│   50%       │    50%       │
+└─────────────┴──────────────┘
+              ↓
+    EnsembleRetriever
+    Best of Both! ✅
+              ↓
+         Groq LLM
+              ↓
+      Your Answer 🎯
 ```
 
 ---
 
-## Author
+## ⚠️ Known Limitations
 
-Anushka Singh
-
-B.Tech Artificial Intelligence & Machine Learning
-
-Focused on:
-
-* Generative AI
-* Retrieval-Augmented Generation
-* LLM Engineering
-* AI Applications
+- Only supports `.py` files currently
+- Large codebases may take longer to index
+- Requires active internet for Groq API
 
 ---
 
-## License
+## 🔮 Future Enhancements
 
-This project is available for educational and research purposes.
+| Feature | Description |
+|---------|-------------|
+| 🌐 **Multi-language** | Support JS, TS, Java, C++ |
+| 📄 **GitHub Integration** | Load repos directly from URL |
+| 🗺️ **Code Graph** | Visual dependency mapping |
+| 🔐 **Local LLM** | Ollama integration for privacy |
+| 📊 **Code Analytics** | Complexity & quality metrics |
+
+---
+
+## 👩‍💻 Author
+
+<p align="center">
+  <b>Anushka Singh</b><br/>
+  B.Tech AI/ML Student | LLM Engineer in Progress<br/>
+  <a href="https://github.com/singhanushka90">GitHub: singhanushka90</a>
+</p>
+
+---
+
+<p align="center">
+  <i>"Making codebases conversational through the power of RAG and LLMs."</i>
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,100:0f0c29&height=100&section=footer" />
+</p>
